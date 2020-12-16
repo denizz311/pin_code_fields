@@ -245,7 +245,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     _initializeValues();
 
     _cursorController = AnimationController(
-        duration: Duration(milliseconds: 1000), value: this);
+        duration: Duration(milliseconds: 1000), vsync: this);
     _cursorAnimation = Tween<double>(
       begin: 1,
       end: 0,
@@ -255,7 +255,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     ));
     _controller = AnimationController(
       duration: Duration(milliseconds: widget.errorAnimationDuration),
-      value: this,
+      vsync: this,
     );
     _offsetAnimation = Tween<Offset>(
       begin: Offset.zero,
