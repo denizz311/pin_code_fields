@@ -674,7 +674,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 ? Border(
                     bottom: BorderSide(
                       color: _getColorFromIndex(i),
-                      width: _pinTheme.borderWidth,
+                      width: _getBorderWidthFromIndex(i),
                     ),
                   )
                 : Border.all(
