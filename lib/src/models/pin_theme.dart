@@ -34,6 +34,9 @@ class PinTheme {
   /// Border width for the each input fields. Default is [2.0]
   final double borderWidth;
 
+  /// Border width for the selected input field. Default is [2.0]
+  final double selectedBorderWidth;
+
   /// this defines the shape of the input fields. Default is underlined
   final PinCodeFieldShape shape;
 
@@ -42,6 +45,7 @@ class PinTheme {
     this.fieldHeight = 50,
     this.fieldWidth = 40,
     this.borderWidth = 2,
+    this.selectedBorderWidth = 2,
     this.shape = PinCodeFieldShape.underline,
     this.activeColor = Colors.green,
     this.selectedColor = Colors.blue,
@@ -64,6 +68,7 @@ class PinTheme {
       double fieldHeight,
       double fieldWidth,
       double borderWidth,
+      double selectedBorderWidth,
       PinCodeFieldShape shape}) {
     final defaultValues = PinTheme.defaults();
     return PinTheme.defaults(
@@ -76,6 +81,9 @@ class PinTheme {
           borderRadius == null ? defaultValues.borderRadius : borderRadius,
       borderWidth:
           borderWidth == null ? defaultValues.borderWidth : borderWidth,
+      selectedBorderWidth: selectedBorderWidth == null
+          ? defaultValues.selectedBorderWidth
+          : selectedBorderWidth,
       disabledColor:
           disabledColor == null ? defaultValues.disabledColor : disabledColor,
       fieldHeight:

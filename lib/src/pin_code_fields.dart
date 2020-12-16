@@ -245,7 +245,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     _initializeValues();
 
     _cursorController = AnimationController(
-        duration: Duration(milliseconds: 1000), vsync: this);
+        duration: Duration(milliseconds: 1000), value: this);
     _cursorAnimation = Tween<double>(
       begin: 1,
       end: 0,
@@ -255,7 +255,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
     ));
     _controller = AnimationController(
       duration: Duration(milliseconds: widget.errorAnimationDuration),
-      vsync: this,
+      value: this,
     );
     _offsetAnimation = Tween<Offset>(
       begin: Offset.zero,
@@ -410,6 +410,20 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
       return _pinTheme.activeFillColor;
     }
     return _pinTheme.inactiveFillColor;
+  }
+
+  double _getBorderWidthFromIndex(int index) {
+    if (!widget.enabled) {
+      return _pinTheme.borderWidth;
+    }
+    if (((_selectedIndex == index) ||
+            (_selectedIndex == index + 1 && index + 1 == widget.length)) &&
+        _focusNode.hasFocus) {
+      return _pinTheme.selectedBorderWidth;
+    } else if (_selectedIndex > index) {
+      return _pinTheme.borderWidth;
+    }
+    return _pinTheme.borderWidth;
   }
 
   /// Builds the widget to be shown
